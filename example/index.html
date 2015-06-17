@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
+    </head>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <!-- <script type="text/javascript" src="plugins/revmob-cordova-plugin/www/revmob.js"></script> -->
+    <script type="text/javascript">
+        app.initialize();
+        var revmob = null;
+        function onDeviceReady() {
+            revmob = new RevMob("5106be9d0639b41100000052"); //iOS
+            // revmob = new RevMob("5106bea78e5bd71500000098"); //Android
+        }
+
+        function onBodyLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+
+        var onSuccess = function (event) {
+            var message = "";
+            if (event.RevMobAdsEvent == "SESSION_STARTED") {
+                message = "Session started!";
+            }
+            else if (event.RevMobAdsEvent == "AD_RECEIVED") {
+                message = "Ad received!";
+            }
+            else if (event.RevMobAdsEvent == "AD_DISMISSED") {
+                message = "Ad dismissed!";
+            }
+            else if (event.RevMobAdsEvent == "AD_CLICKED") {
+                message = "Ad clicked!";
+            }
+            else if (event.RevMobAdsEvent == "AD_DISPLAYED") {
+                message = "Ad displayed!";
+            }
+            else if (event.RevMobAdsEvent == "VIDEO_LOADED") {
+                message = "Video loaded!";
+            }
+            else if (event.RevMobAdsEvent == "VIDEO_NOT_COMPLETELY_LOADED") {
+                message = "Video not completely loaded!";
+            }
+            else if (event.RevMobAdsEvent == "VIDEO_STARTED") {
+                message = "Video started!";
+            }
+            else if (event.RevMobAdsEvent == "VIDEO_FINISHED") {
+                message = "Video finished!";
+            }
+            else if (event.RevMobAdsEvent == "REWARDED_VIDEO_LOADED") {
+                message = "Rewarded Video loaded!";
+            }
+            else if (event.RevMobAdsEvent == "REWARDED_VIDEO_NOT_COMPLETELY_LOADED") {
+                message = "Rewarded Video not completely loaded!";
+            }
+            else if (event.RevMobAdsEvent == "REWARDED_VIDEO_STARTED") {
+                message = "Rewarded Video started!";
+            }
+            else if (event.RevMobAdsEvent == "REWARDED_VIDEO_FINISHED") {
+                message = "Rewarded Video finished!";
+            }
+            else if (event.RevMobAdsEvent == "REWARDED_VIDEO_COMPLETED") {
+                message = "Rewarded Video completed!";
+            }
+            else if (event.RevMobAdsEvent == "REWARDED_PRE_ROLL_DISPLAYED") {
+                message = "Rewarded Video Pre-Roll displayed!";
+            }
+            else if (event.RevMobAdsEvent == "EULA_DISPLAYED") {
+                message = "Eula displayed!";
+            }
+            else if (event.RevMobAdsEvent == "EULA_ACCEPTED") {
+                message = "Eula accepted!";
+            }
+            else if (event.RevMobAdsEvent == "EULA REJECTED") {
+                message = "Eula rejected!";
+            }
+            else {
+                message = event.RevMobAdsEvent;
+            }
+
+            var element = document.getElementById('eventLog');
+            element.innerHTML = 'EVENT: ' + message;
+        }
+
+        var onError = function (event) {
+            var message = "";
+            if (event.RevMobAdsEvent == "AD_NOT_RECEIVED") {
+                message = "Ad not received!";
+            }
+            else if (event.RevMobAdsEvent == "SESSION_NOT_STARTED") {
+                message = "Session not started!";
+            }
+            else {
+                message = event.RevMobAdsEvent;
+            }
+
+            var element = document.getElementById('eventLog');
+            element.innerHTML = 'ERROR: ' + message;
+        }
+    </script>
+
+    <body onload="onBodyLoad()">
+        <div class="app">
+            <h1>The RevMob Sample App</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+            <div>
+                <select><option>Example Option 1</option><option>Example Option #2</option></select>
+            </div>            
+            <div>
+                <input name="" type="text" placeholder="Test input">
+            </div>
+            <div class="revmob-panel">
+                <button onclick="revmob.startSession(onSuccess, onError);">Start Session</button><br />
+                <button onclick="revmob.setTestingMode(revmob.TEST_WITH_ADS);">Testing mode with ads</button><br />
+                <button onclick="revmob.setTestingMode(revmob.TEST_WITHOUT_ADS);">Testing mode without ads</button><br />
+                <button onclick="revmob.setTestingMode(revmob.TEST_DISABLED);">Disable Testing mode</button><br />
+                <button onclick="revmob.showFullscreen(onSuccess, onError);">Show Fullscreen</button><br />
+                <button onclick="revmob.loadFullscreen(onSuccess, onError);">Load Fullscreen</button><br />
+                <button onclick="revmob.showLoadedFullscreen(onSuccess, onError);">Show Loaded Fullscreen</button><br />
+                <button onclick="revmob.loadVideo(onSuccess, onError);">Load Video</button><br />
+                <button onclick="revmob.showVideo(onSuccess, onError);">Show Video</button><br />
+                <button onclick="revmob.loadRewardedVideo(onSuccess, onError);">Load Rewarded Video</button><br />
+                <button onclick="revmob.showRewardedVideo(onSuccess, onError);">Show Rewarded Video</button><br />
+                <button onclick="revmob.showPopup(onSuccess, onError);">Show Popup</button><br />
+                <button onclick="revmob.showBanner(onSuccess, onError);">Show Banner</button><br />
+                <button onclick="revmob.hideBanner(onSuccess, onError);">Hide Banner</button><br />
+                <button onclick="revmob.showCustomBanner(onSuccess, onError);">Show Custom Banner</button><br />
+                <button onclick="revmob.hideCustomBanner(onSuccess, onError);">Hide Custom Banner</button><br />
+                <button onclick="revmob.showCustomBannerPos(0, 0, 320, 50, onSuccess, onError);">Show Custom Banner Position</button><br />
+                <button onclick="revmob.openLink(onSuccess, onError);">Open Link</button><br />
+                <button onclick="revmob.printEnvironmentInformation();">Print Environment Information</button><br />
+                <button onclick="revmob.setTimeoutInSeconds(5);">Set timeout (5s)</button><br />
+            </div>
+            <p id="eventLog">Waiting for events</p>
+        </div>
+    </body>
+</html>
