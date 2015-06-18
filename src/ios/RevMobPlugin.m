@@ -15,7 +15,7 @@
 
 
 NSString* SDK_NAME = @"cordova-ios";
-NSString* SDK_VERSION = @"1.5.0";
+NSString* SDK_VERSION = @"9.0.2";
 
 RevMobFullscreen *fullscreenAd, *video, *rewardedVideo;
 

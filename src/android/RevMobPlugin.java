@@ -1,4 +1,4 @@
-package com.revmob.cordova;
+package com.revmob.cordova.plugin;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -20,7 +20,7 @@ public class RevMobPlugin extends CordovaPlugin {
 	private RevMob revmob;
 	private RevMobFullscreen video, fullscreen, rewardedVideo;
 	public static final String SDK_NAME = "cordova-android";
-	public static final String SDK_VERSION = "1.5.0";
+	public static final String SDK_VERSION = "9.0.2";
 	private CallbackContext lastCallbackContext = null;
 	
 	RevMobAdsListener revmobListener = new RevMobAdsListener() {

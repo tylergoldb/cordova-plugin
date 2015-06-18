@@ -5,7 +5,6 @@ function RevMob(appId) {
 	this.TEST_WITHOUT_ADS = 2;
 
 	this.startSession = function(successCallback, errorCallback) {
-		alert('startSession')
     	cordova.exec(successCallback, errorCallback, "RevMobPlugin", "startSession", [appId]);
   	}
 
