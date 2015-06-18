@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="revmob-cordova-plugin" version="9.0.2">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.revmob.cordova.plugin" version="9.0.2">
 	
     <name>RevMob Cordova Plugin</name>
-    <description></description>
+    <description>Official RevMob Cordova Plugin for iOS and Android</description>
     <author>RevMob</author>	
     <license></license>
-    <keywords></keywords>
-    <repo></repo>
+    <keywords>revmob,ad,network,cordova</keywords>
+    <repo>https://github.com/revmob/cordova-plugin</repo>
     <issue></issue>	
 	<engines>
 	    <engine name="cordova" version=">=3.0.0" />
