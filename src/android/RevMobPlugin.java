@@ -20,7 +20,7 @@ public class RevMobPlugin extends CordovaPlugin {
 	private RevMob revmob;
 	private RevMobFullscreen video, fullscreen, rewardedVideo;
 	public static final String SDK_NAME = "cordova-android";
-	public static final String SDK_VERSION = "9.0.2";
+	public static final String SDK_VERSION = "9.0.3";
 	private CallbackContext lastCallbackContext = null;
 	
 	RevMobAdsListener revmobListener = new RevMobAdsListener() {
