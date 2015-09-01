@@ -36,6 +36,10 @@ function RevMob(appId) {
 		cordova.exec(successCallback, errorCallback, "RevMobPlugin", "showRewardedVideo", []);
 	}
 
+	this.openButton = function(successCallback, errorCallback) {
+		cordova.exec(successCallback, errorCallback, "RevMobPlugin", "openButton", []);
+	}
+
 	this.openLink = function(successCallback, errorCallback) {
 		cordova.exec(successCallback, errorCallback, "RevMobPlugin", "openLink", []);
 	}

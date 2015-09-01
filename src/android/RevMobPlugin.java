@@ -128,6 +128,11 @@ public class RevMobPlugin extends CordovaPlugin {
 			hideBanner();
 			return true;
 		}
+		if (action.equals("openButton")) {
+			setCallbackContext(callbackContext);
+			openLink();
+			return true;
+		}
 		if (action.equals("openLink")) {
 			setCallbackContext(callbackContext);
 			openLink();
@@ -230,6 +235,10 @@ public class RevMobPlugin extends CordovaPlugin {
 
 	private void hideBanner() {
 		revmob.hideBanner(cordova.getActivity());
+	}
+
+	private void openButton() {
+		revmob.openLink(cordova.getActivity(), revmobListener);
 	}
 
 	private void openLink() {

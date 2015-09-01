@@ -153,6 +153,12 @@ RevMobFullscreen *fullscreenAd, *video, *rewardedVideo;
     [self eventCallbackSuccess:@"AD_DISMISSED" :command];
 }
 
+
+- (void)openButton:(CDVInvokedUrlCommand *)command {
+    [self openLink];
+}
+
+
 - (void)openLink:(CDVInvokedUrlCommand *)command {
     RevMobAdLink *link = [[RevMobAds session] adLink];
     [link loadWithSuccessHandler:^(RevMobAdLink *link) {
